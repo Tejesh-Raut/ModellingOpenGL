@@ -1,0 +1,96 @@
+<!Doctype HTML>
+<html>
+<head>
+<h1>CS475 Assignment1 </h1>
+<h2>Modelling Viewing Pipeline: Modelling</h2>
+<h3>Team members: Ashna Gaur(140050087) and Tejesh Raut(140050008)</h3>
+</head>
+<body>
+<h3>How to run?</h3>
+<p>Open the folder Assignment1 <i>(where makefile is present)</i> in terminal and run the command "<b>make</b>"" to compile the project. To open the project open the executable using the command "<b>./modelling</b>". Details about how to create and view model are given in respective modes</p>
+<h2>Modes</h2>
+<p> There are two modes as per requirement- Modelling Mode and Inspection Mode . By pressing '<b>M</b>', we can activate the modelling mode where object can be modelled using various points and colors. In Inspection Mode which is activated by pressing '<b>I</b>', translation and rotation are implemented as per requirement for viewing the model. Details are given in further sections. </p>
+<p>Default mode is the inspection mode</p>
+<h3>Modelling Mode</h3>
+<p> The xy plane is the visible plane with default z coordinate set to 0 and color set to "0.5, 0.5, 0.5" .
+<br>We can change the z coordinate, color by pressing keys as follows:</p>
+<b>Controls:</b>
+<ul>
+<li>"<b>PgUp</b>"- decreases the z coordinate by 0.1</li>
+<li>"<b>PgDn</b>"- increases the z coordinate by 0.1</li>
+<li>"<b>1</b>" - decreases the value of RED by 0.1</li>
+<li>"<b>2</b>" - increases the value of RED by 0.1</li>
+<li>"<b>3</b>" - decreases the value of GREEN by 0.1</li>
+<li>"<b>4</b>" - increases the value of GREEN by 0.1</li>
+<li>"<b>5</b>" - decreases the value of BLUE by 0.1</li>
+<li>"<b>6</b>" - increases the value of BLUE by 0.1</li>
+<li>"<b>Left_Mouse_Click</b>" - adds a point</li>
+<li>"<b>SHIFT</b>+ <b>Left_Mouse_Click</b>" - removes the last added point</li>
+<li>"<b>H</b>" - Disconnect the polygon <i>(Draws the polygon using the clicked points till now and starts new polygon drawing. Nothing of current polygon will be displayed until H is pressed to end it)</i></li>
+</ul>
+<b>Working:</b>
+<p>To draw any model, break the model into polygons which may even be 3D polygons and draw polygons one by one</p>
+<p>Select the points one by one to draw a polygon and then press "H" to finish a polygon and start a new one</p>
+<p>While selecting the points you can move around the z-axis <i>(although this won't be visible in modelling mode)</i> and change the colors of the vertices using the controls mentioned above</p>
+<p>Anytime during drawing, you can change the mode to see how the model will look from different angles</p>
+<p>The algorithm for sub-dividing the polygon into triangles is such that each of triangles will have 0th point as one vertex and base will be consecutive points. It is explained in the diagram below:</p>
+<img src="report_images/polygon_subdividing.png" alt="polygon_subdividing.png">
+<h3>Inspection Mode</h3>
+<p>The inspection mode allows translation, rotation and shifting of centroid as follows:</p>
+<b>Controls:</b>
+<ul>
+<li>"<b>LEFT</b>"- rotation along y axis by -1</li>
+<li>"<b>RIGHT</b>"- rotation along y axis by +1</li>
+<li>"<b>UP</b>"- rotation along x axis by -1</li>
+<li>"<b>DOWN</b>"- rotation along x axis by +1</li>
+<li>"<b>PgUp</b>"- rotation along z axis by -1</li>
+<li>"<b>PgDn</b>"- rotation along z axis by +1</li>
+<li>"<b>W</b>"- translate along positive y axis by 0.1</li>
+<li>"<b>S</b>"- translate along negative y axis by 0.1</li>
+<li>"<b>A</b>"- translate along negative x axis by 0.1</li>
+<li>"<b>D</b>"- translate along positive x axis by 0.1</li>
+<li>"<b>Z</b>"- translate along negative z axis by 0.1</li>
+<li>"<b>X</b>"- translate along positive z axis by 0.1</li>
+<li>"<b>K</b>" - saves the model <i>(You need to enter the filename without extension. You need to change cursor focus to terminal before entering the filename)</i></li>
+<li>"<b>L</b>" - loads a previously saved model <i>(Enter filename with extension in the terminal. You need to change cursor focus to terminal before entering the filename)</i></li>
+</ul>
+<b>Working:</b>
+<p>Use the above keys to rotate<i>(around its own centroid)</i> or translate the object as you wish.</p>
+<p>Current window needs to be terminal while entering filenames, and the OpenGL window when using above controls</p>
+
+<h2>Output:</h2>
+<p>Here are some screenshots of the final models created using this project</p>
+<h3>Simple hut:</h3>
+<p>File: myhut.raw</p>
+<img src="report_images/myhut1.png" alt="myhut1.png">
+<img src="report_images/myhut2.png" alt="myhut2.png">
+<h3>Windmill:</h3>
+<p>File: windmill.raw</p>
+<img src="report_images/windmill1.png" alt="windmill1.png" style="width:33%">
+<img src="report_images/windmill2.png" alt="windmill2.png" style="width:33%">
+<img src="report_images/windmill3.png" alt="windmill3.png" style="width:33%">
+<h3>Japanese fan:</h3>
+<p>File: fan.raw</p>
+<img src="report_images/fan1.png" alt="fan1.png" style="width:33%">
+<img src="report_images/fan2.png" alt="fan2.png" style="width:33%">
+<img src="report_images/fan3.png" alt="fan3.png" style="width:33%">
+<h2>References</h2>
+<ul>
+	<li>
+		<a href="https://www.cse.iitb.ac.in/~paragc/teaching/2017/cs475/tutorials/04_camera_viewing.tgz">Tutorial 4: Prespective and Orthographic Viewing</a>
+	</li>
+	<li>
+		<a href="https://stackoverflow.com/a/45130457/5178671">OpenGL get cursor coordinate on mouse click in C++ - Stack Overflow</a>
+	</li>
+	<li>
+		<a href="https://stackoverflow.com/a/10966454/5178671">c++ - Passing a string to file.open(); - Stack Overflow</a>
+	</li>
+	<li>
+		<a href="http://www.cplusplus.com/doc/tutorial/files/">Input/output with files - C++ Tutorials</a>
+	</li>
+	<li>
+		<a href="http://www.glfw.org/docs/latest/group__input.html">GLFW: Input reference</a>
+	</li>
+</ul>
+</body>
+</html>
